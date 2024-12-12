@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Creative Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background: #f8f9fa;
+            color: #333;
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        body.dark {
+            background: #121212;
+            color: #f8f9fa;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 1rem;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 0 0.5rem;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #17a2b8;
+        }
+
+        .language-selector {
+            margin-left: 1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: url('https://th.bing.com/th/id/OIP.fw1A9x4BT2hXT2XrmnaCEAHaEK?rs=1&pid=ImgDetMain') no-repeat center center/cover;
+            color: #fff;
+        }
+
+        .btn {
+            background: #17a2b8;
+            color: #fff;
+            padding: 0.5rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 1rem;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #138496;
+        }
+
+        .dark-toggle {
+            cursor: pointer;
+            padding: 0.5rem;
+            background: #17a2b8;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .dark-toggle:hover {
+            background: #138496;
+        }
+
+        /* About Section */
+        .about, .portfolio, .contact {
+            min-height: 100vh; /* Make each section take full screen height */
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        .social-links a {
+            color: #fff;
+            margin: 0 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #17a2b8;
+        }
+
+        /* Additional Styling */
+        h1, h2, p {
+            font-size: 2rem;
+            line-height: 1.5;
+        }
+
+        .gallery-item {
+            background-color: #ccc;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 5px;
+            display: inline-block;
+            width: calc(33% - 20px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">MyBrand</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div>
+                <button class="dark-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+                <select class="language-selector" onchange="changeLanguage(event)">
+                    <option value="en">English</option>
+                    <option value="ar">العربية</option>
+                </select>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1 data-aos="fade-up" id="hero-title">Welcome to My Creative Space</h1>
+        <p data-aos="fade-up" data-aos-delay="200" id="hero-desc">Let’s bring your ideas to life.</p>
+        <a href="#portfolio" class="btn" data-aos="fade-up" data-aos-delay="400">Explore Projects</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about" data-aos="fade-right">
+        <h2 id="about-title">About Me</h2>
+        <p id="about-desc">I'm a creative professional specializing in innovative designs and solutions that inspire.</p>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio" data-aos="fade-left">
+        <h2 id="portfolio-title">My Portfolio</h2>
+        <div class="gallery" data-aos="fade-up">
+            <div class="gallery-item">Project 1</div>
+            <div class="gallery-item">Project 2</div>
+            <div class="gallery-item">Project 3</div>
+            <div class="gallery-item">Project 4</div>
+            <div class="gallery-item">Project 5</div>
+            <div class="gallery-item">Project 6</div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact" data-aos="fade-up">
+        <h2 id="contact-title">Contact Me</h2>
+        <form action="#">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 MyBrand. All Rights Reserved.</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://unpkg.com/i18next/dist/umd/i18next.min.js"></script>
+    <script>
+        AOS.init();
+
+        // Dark Mode Toggle
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark');
+        }
+
+        // Language Change Function
+        function changeLanguage(event) {
+            const lang = event.target.value;
+            const resources = {
+                en: {
+                    translation: {
+                        "hero-title": "Welcome to My Creative Space",
+                        "hero-desc": "Let’s bring your ideas to life.",
+                        "about-title": "About Me",
+                        "about-desc": "I'm a creative professional specializing in innovative designs and solutions that inspire.",
+                        "portfolio-title": "My Portfolio",
+                        "contact-title": "Contact Me"
+                    }
+                },
+                ar: {
+                    translation: {
+                        "hero-title": "مرحبًا بكم في مساحتي الإبداعية",
+                        "hero-desc": "دعونا نحقق أفكارك إلى واقع.",
+                        "about-title": "من أنا",
+                        "about-desc": "أنا محترف مبدع متخصص في التصاميم المبتكرة والحلول الملهمة.",
+                        "portfolio-title": "أعمالي",
+                        "contact-title": "اتصل بي"
+                    }
+                }
+            };
+            i18next.init({
+                lng: lang,
+                resources
+            }, function(err, t) {
+                document.getElementById('hero-title').innerHTML = t('hero-title');
+                document.getElementById('hero-desc').innerHTML = t('hero-desc');
+                document.getElementById('about-title').innerHTML = t('about-title');
+                document.getElementById('about-desc').innerHTML = t('about-desc');
+                document.getElementById('portfolio-title').innerHTML = t('portfolio-title');
+                document.getElementById('contact-title').innerHTML = t('contact-title');
+            });
+        }
+    </script>
+</body>
+</html>
